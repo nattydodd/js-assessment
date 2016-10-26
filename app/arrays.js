@@ -27,7 +27,16 @@ exports.arraysAnswers = {
   },
 
   removeWithoutCopy: function(arr, item) {
-
+    var count = {};
+      for (var i = 0; i < arr.length; i++) {
+        count[arr[i]] = count[arr[i]] + 1 || 1;
+      }
+    var times = count[item];
+      for (var i = 0; i < times; i++) {
+        var index = arr.indexOf(item);
+        arr.splice(index, 1);
+      }
+    return arr
   },
 
   append: function(arr, item) {
